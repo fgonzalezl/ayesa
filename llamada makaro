@@ -1,0 +1,14 @@
+HttpRequest req = new HttpRequest();
+ 
+//Set the request method to as ‘GET’.
+req.setMethod('GET');
+ 
+//Set endpoint as the API endpoint shown in step 11.
+req.setEndpoint('https://my.api.mockaroo.com/users.json?key=6983de20');
+ 
+Http h = new Http();
+HttpResponse res = new HttpResponse();
+res = h.send(req);
+List pList = new List();
+pList = (List)JSON.deserialize(res.getBody(), List.Class);
+insert pList;
